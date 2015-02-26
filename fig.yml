@@ -1,11 +1,18 @@
 db:
-  build: ../exercism.io/db
+  image: postgres:9.4
   environment:
     POSTGRES_USER: exercism
     POSTGRES_PASSWORD: apples
+  volumes_from:
+    - dbdata
+
+dbdata:
+  image: postgres:9.4
+  volumes:
+    - "/home/vamsi/postgres/data:/var/lib/postgresql/data"
 
 web:
-  build: ../exercism.io/current
+  build: ../exercism.io
   command: foreman start
   ports:
     - "4567:4567"
