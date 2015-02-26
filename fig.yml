@@ -5,7 +5,7 @@ db:
     POSTGRES_PASSWORD: apples
 
 web:
-  build: ../exercism.io
+  build: ../exercism.io/current
   command: foreman start
   ports:
     - "4567:4567"
