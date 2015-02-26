@@ -1,5 +1,5 @@
 web:
-  build: ../../exercism.io/current
+  build: ../../exercism.io
   command: foreman start
   ports:
     - "4567:4567"
