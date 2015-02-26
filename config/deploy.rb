@@ -5,7 +5,7 @@ set :application, "x-api"
 set :repo_url, "git@github.com:code-R/x-api.git"
 
 # Default branch is :master
-set :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, "/home/pramati/projects/exercism/x-api"
@@ -38,9 +38,11 @@ namespace :deploy do
   desc "Restart application"
     task :build do
       on roles(:app), in: :sequence, wait: 5 do
-        execute "cd '#{release_path}' ; fig -p xapi build"
-        # execute "cd '#{release_path}'; fig -p exercism up -d"
+        execute "cd '#{release_path}'; fig -p xapi build"
+        execute "cd '#{release_path}'; fig -p xapi up -d"
       end
     end
-  after :publishing, :build  
+
+# remote_file 'config/database.yml' => 'config/database.yml'
+   after :publishing, :build
 end
