@@ -14,6 +14,7 @@ gem 'tilt', '~> 1.3'
 
 group :development, :test do
   gem 'approvals', '~> 0.0.16', require: false
+  gem 'capistrano', '~> 3.3.0'
   gem 'coveralls', '~> 0.7', require: false
   gem 'minitest', '~> 5.3', require: false
   gem 'rack-test', '~> 0.6', require: false
