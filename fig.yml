@@ -1,8 +1,8 @@
-# db:
-#   build: ../exercism.io/db
-#   environment:
-#     POSTGRES_USER: exercism
-#     POSTGRES_PASSWORD: apples
+db:
+  build: ../exercism.io/db
+  environment:
+    POSTGRES_USER: exercism
+    POSTGRES_PASSWORD: apples
 
 web:
   build: ../exercism.io
